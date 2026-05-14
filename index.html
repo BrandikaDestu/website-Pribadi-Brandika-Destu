@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>BrandikaDestu My Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+      :root {
+        --primary: #fc0000;
+        --secondary: #0011fc;
+        --accent: #ffe66d;
+        --dark: #292f36;
+        --light: #f7fff7;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #e7e0fa 0%, #b3e5fc 100%);
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+
+      .cartoon-border {
+        border: 3px solid var(--dark);
+        box-shadow: 8px 8px 0px var(--dark);
+        transition: all 0.3s ease;
+      }
+
+      .cartoon-border:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 12px 12px 0px var(--dark);
+      }
+
+      .bubble {
+        background: white;
+        border: 3px solid var(--dark);
+        border-radius: 20px;
+        padding: 20px;
+        position: relative;
+        box-shadow: 6px 6px 0px var(--dark);
+      }
+
+      .bubble::after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 50px;
+        border-width: 15px 15px 0;
+        border-style: solid;
+        border-color: white transparent transparent;
+        filter: drop-shadow(4px 4px 0px var(--dark));
+      }
+
+      .bubble::before {
+        content: "";
+        position: absolute;
+        bottom: -18px;
+        left: 48px;
+        border-width: 18px 18px 0;
+        border-style: solid;
+        border-color: var(--dark) transparent transparent;
+        z-index: -1;
+      }
+
+      .floating {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .pulse {
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .stagger-item {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.6s ease forwards;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .rainbow-text {
+        background: linear-gradient(45deg, #fc0000, #3200e6, #ffd500, #fc0000);
+        background-size: 300% 300%;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        animation: rainbow 3s ease-in-out infinite;
+      }
+
+      @keyframes rainbow {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .section-title {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 3rem;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        border-radius: 2px;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md z-50 border-b-4 border-dark shadow-lg">
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+          <a
+            href="#"
+            class="text-2xl font-bold rainbow-text"
+            >BrandikaDestu</a
+          >
+          <div class="hidden md:flex space-x-8">
+            <a
+              href="#home"
+              class="hover:text-primary transition-colors font-medium"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="hover:text-primary transition-colors font-medium"
+              >About</a
+            >
+            <a
+              href="#education"
+              class="hover:text-primary transition-colors font-medium"
+              >Education</a
+            >
+            <a
+              href="#skills"
+              class="hover:text-primary transition-colors font-medium"
+              >Skills</a
+            >
+            <a
+              href="#projects"
+              class="hover:text-primary transition-colors font-medium"
+              >Projects</a
+            >
+            <a
+              href="#certification"
+              class="hover:text-primary transition-colors font-medium"
+              >Sertifikat</a
+            >
+          </div>
+          <button class="md:hidden text-2xl">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="min-h-screen flex items-center pt-20 pb-16 px-6"
+    >
+      <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div
+          class="stagger-item"
+          style="animation-delay: 0.1s"
+        >
+          <div class="bubble max-w-md mx-auto md:mx-0">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4">Halo! Saya <span class="rainbow-text">Brandika Destu</span></h1>
+            <p class="text-lg mb-6 text-gray-700">Seorang <span class="font-bold text-primary">Web Developer</span> yang passionate dalam membuat pengalaman digital yang menyenangkan dan fungsional!</p>
+            <div class="flex flex-wrap gap-4">
+              <a
+                href="#projects"
+                class="bg-green-600 text-white px-6 py-3 rounded-full font-semibold cartoon-border border-2 border-green-600 hover:bg-white hover:text-black hover:bg-opacity-90 transition-colors"
+              >
+                Lihat Projek Saya
+              </a>
+              <a
+                href="#about"
+                class="border-2 border-green-600 px-6 py-3 rounded-full font-semibold cartoon-border hover:bg-green-600 hover:text-white transition-colors"
+              >
+                Hubungi Saya
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="stagger-item"
+          style="animation-delay: 0.3s"
+        >
+          <div class="relative">
+            <div class="w-80 h-80 mx-auto bg-white rounded-full border-4 border-dark shadow-2xl overflow-hidden floating">
+              <img
+                src="img/foto hero.png"
+                alt="Kartun ilustrasi karakter programmer sedang tersenyum dengan latar belakang warna-warni dan elemen desain geometris"
+                class="w-full h-full object-cover"
+                onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #FF6B6B, #4ECDC4)'"
+              />
+            </div>
+            <div class="absolute -top-4 -right-4 w-20 h-20 bg-accent rounded-full border-3 border-dark flex items-center justify-center pulse">
+              <i class="fas fa-star text-2xl text-dark"></i>
+            </div>
+            <div
+              class="absolute -bottom-8 -left-8 w-16 h-16 bg-secondary rounded-full border-3 border-dark flex items-center justify-center floating"
+              style="animation-delay: 2s"
+            >
+              <i class="fas fa-heart text-xl text-white"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section
+      id="about"
+      class="py-20 px-6 bg-white"
+    >
+      <div class="container mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-16 section-title">Tentang Saya</h2>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div
+            class="stagger-item"
+            style="animation-delay: 0.2s"
+          >
+            <div class="bg-gradient-to-br from-primary to-secondary p-1 rounded-2xl cartoon-border">
+              <div class="bg-white rounded-2xl p-8">
+                <h3 class="text-2xl font-bold mb-4">Cerita Singkat</h3>
+                <p class="text-gray-700 mb-4 text-justify">Saya seorang lulusan teknik informatika yang menyukai web developer, tapi saya lebih tertantang belajar cyber security</p>
+                <p class="text-gray-700 mb-4 text-justify">Saya percaya bahwa setiap website harus tidak hanya cantik secara visual tetapi juga memberikan pengalaman pengguna yang luar biasa.</p>
+                <p class="text-gray-700 text-justify">
+                  Tapi Saya juga percaya bahwa setiap sistem digital harus tidak hanya berfungsi dengan baik tetapi juga aman dari ancaman, sehingga pengguna dapat bekerja dan berinteraksi dengan tenang
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="stagger-item"
+            style="animation-delay: 0.4s"
+          >
+            <h4 class="text-2xl font-bold mb-4">Sosial Media</h4>
+            <div class="flex space-x-4">
+              <!-- Instagram -->
+              <a
+                href="https://www.instagram.com/brandikadestu"
+                class="bg-gradient-to-br from-primary to-secondary w-14 h-14 rounded-full cartoon-border hover:bg-pink-600 transition-colors flex items-center justify-center"
+              >
+                <i class="fab fa-instagram text-2xl text-gray-800 hover:text-white transition-colors"></i>
+              </a>
+
+              <!-- TikTok -->
+              <a
+                href="https://www.tiktok.com/@brandikadestu"
+                class="bg-gradient-to-br from-primary to-secondary w-14 h-14 rounded-full cartoon-border hover:bg-black transition-colors flex items-center justify-center"
+              >
+                <i class="fab fa-tiktok text-2xl text-gray-800 hover:text-white transition-colors"></i>
+              </a>
+
+              <!-- Facebook -->
+              <a
+                href="https://www.facebook.com/Brandika.destu"
+                class="bg-gradient-to-br from-primary to-secondary w-14 h-14 rounded-full cartoon-border hover:bg-blue-600 transition-colors flex items-center justify-center"
+              >
+                <i class="fab fa-facebook text-2xl text-gray-800 hover:text-white transition-colors"></i>
+              </a>
+
+              <!-- LinkedIn -->
+              <a
+                href="https://www.linkedin.com/in/brandika-destu-960786336"
+                class="bg-gradient-to-br from-primary to-secondary w-14 h-14 rounded-full cartoon-border hover:bg-blue-700 transition-colors flex items-center justify-center"
+              >
+                <i class="fab fa-linkedin text-2xl text-gray-800 hover:text-white transition-colors"></i>
+              </a>
+
+              <!-- Github -->
+              <a
+                href="https://github.com/brandikadestu"
+                class="bg-gradient-to-br from-primary to-secondary w-14 h-14 rounded-full cartoon-border hover:bg-black transition-colors flex items-center justify-center"
+              >
+                <i class="fab fa-github text-2xl text-gray-800 hover:text-white transition-colors"></i>
+              </a>
+            </div>
+            <!-- Tombol WA Oval -->
+            <div style="margin-top: 16px">
+              <a
+                href="#"
+                onclick="kirimWA(); return false;"
+                style="
+                  display: inline-block;
+                  padding: 10px 24px;
+                  background: #25d366;
+                  color: white;
+                  border-radius: 999px;
+                  text-decoration: none;
+                  font-weight: 600;
+                  transition: all 0.3s ease;
+                  box-shadow: 0 4px 6px rgba(68, 67, 67, 0.1);
+                  border: 2px solid #3a3939;
+                "
+                onmouseover="this.style.background='#1ebe5b'; this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 10px rgba(37, 211, 102, 0.4)'; this.style.border='3px solid #111';"
+                onmouseout="this.style.background='#25d366'; this.style.transform='scale(1)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,0.1)'; this.style.border='3px solid #1a1a1a';"
+              >
+                Chat saya di WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Experience Section -->
+    <section
+      id="education"
+      class="py-20 px-6 bg-gradient-to-br from-blue-50 to-green-50"
+    >
+      <div class="container mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-16 section-title">Pendidikan & Pengalaman</h2>
+        <div class="grid md:grid-cols-2 gap-12">
+          <!-- Education -->
+          <div
+            class="stagger-item"
+            style="animation-delay: 0.2s"
+          >
+            <h3 class="text-2xl font-bold mb-8 text-center">🎓 Pendidikan</h3>
+            <div class="space-y-8">
+              <div class="bg-white p-6 rounded-2xl cartoon-border">
+                <div class="flex items-start gap-4">
+                  <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-graduation-cap text-dark"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-lg">S1 Teknik Informatika</h4>
+                    <p class="text-secondary font-semibold">Universitas Muhammadiyah Bengkulu</p>
+                    <p class="text-gray-600">2020 - 2024</p>
+                    <p class="text-gray-700 mt-2">IPK: 3.79</p>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-white p-6 rounded-2xl cartoon-border">
+                <div class="flex items-start gap-4">
+                  <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-laptop text-dark"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-lg">Coming Soon</h4>
+                    <p class="text-secondary font-semibold">Course.net</p>
+                    <p class="text-gray-600">2026</p>
+                    <p class="text-gray-700 mt-2">Cyber Security (CEH)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience -->
+          <div
+            class="stagger-item"
+            style="animation-delay: 0.4s"
+          >
+            <h3 class="text-2xl font-bold mb-8 text-center">💼 Pengalaman</h3>
+            <div class="space-y-8">
+              <div class="bg-white p-6 rounded-2xl cartoon-border">
+                <div class="flex items-start gap-4">
+                  <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-briefcase text-dark"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-lg">Staf IT</h4>
+                    <p class="text-secondary font-semibold">Universitas Muhammadiyah Bengkulu</p>
+                    <p class="text-gray-600">April 2024 - Juli 2024</p>
+                    <p class="text-gray-700 mt-2 text-justify">
+                      Mengelola dokumen akreditasi dan RPS sesuai standar BAN-PT, mengatur tugas tim akreditasi serta mengolah data akademik maupun non-akademik, membantu pengembangan sistem informasi berbasis web dan Tracer Apps, serta
+                      menyusun materi promosi dan mendukung administrasi di lingkungan fakultas.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-white p-6 rounded-2xl cartoon-border">
+                <div class="flex items-start gap-4">
+                  <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-laptop-code text-dark"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-lg">Asisten Dosen</h4>
+                    <p class="text-secondary font-semibold">Universitas Muhammadiyah Bengkulu</p>
+                    <p class="text-gray-600">Maret 2023 - Mei 2024</p>
+                    <p class="text-gray-700 mt-2 text-justify">
+                      Mengajar Computer Vision dan Sistem Informasi menggunakan MATLAB untuk menghubungkan teori dan praktik, menyusun materi ajar, modul praktikum, dan soal ujian, serta berkontribusi dalam penulisan buku "Sistem Informasi:
+                      Konsep, Implementasi, dan Studi Kasus". Selain itu, membuat desain grafis kegiatan akademik menggunakan Pixellab dan Canva, menginstal serta mengonfigurasi software pembelajaran seperti MATLAB dan Cisco Packet Tracer,
+                      serta membuat animasi 2D dan website sederhana (HTML, CSS, JavaScript) sebagai media pembelajaran.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section
+      id="skills"
+      class="py-20 px-6 bg-white"
+    >
+      <div class="container mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-16 section-title">Keahlian Saya</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div
+            class="stagger-item text-center"
+            style="animation-delay: 0.1s"
+          >
+            <div class="bg-light p-8 rounded-2xl cartoon-border h-full">
+              <div class="w-20 h-20 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fab fa-html5 text-3xl text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-4">HTML/CSS</h3>
+              <div class="w-full bg-gray-200 rounded-full h-3 mb-4">
+                <div
+                  class="bg-blue-500 h-3 rounded-full"
+                  style="width: 75%"
+                ></div>
+              </div>
+              <p class="text-gray-600">Ahli dalam markup dan styling</p>
+            </div>
+          </div>
+          <div
+            class="stagger-item text-center"
+            style="animation-delay: 0.2s"
+          >
+            <div class="bg-light p-8 rounded-2xl cartoon-border h-full">
+              <div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fab fa-js-square text-3xl text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-4">JavaScript</h3>
+              <div class="w-full bg-gray-200 rounded-full h-3 mb-4">
+                <div
+                  class="bg-yellow-500 h-3 rounded-full"
+                  style="width: 40%"
+                ></div>
+              </div>
+              <p class="text-gray-600">Kerangka kerja ES6+ dan modern</p>
+            </div>
+          </div>
+          <div
+            class="stagger-item text-center"
+            style="animation-delay: 0.3s"
+          >
+            <div class="bg-light p-8 rounded-2xl cartoon-border h-full">
+              <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-edit text-3xl text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-4">Canva</h3>
+              <div class="w-full bg-gray-200 rounded-full h-3 mb-4">
+                <div
+                  class="bg-blue-600 h-3 rounded-full"
+                  style="width: 88%"
+                ></div>
+              </div>
+              <p class="text-gray-600">Component-based development</p>
+            </div>
+          </div>
+          <div
+            class="stagger-item text-center"
+            style="animation-delay: 0.4s"
+          >
+            <div class="bg-light p-8 rounded-2xl cartoon-border h-full">
+              <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fab fa-microsoft text-3xl text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-4">Microsoft Office</h3>
+              <div class="w-full bg-gray-200 rounded-full h-3 mb-4">
+                <div
+                  class="bg-green-500 h-3 rounded-full"
+                  style="width: 80%"
+                ></div>
+              </div>
+              <p class="text-gray-600">Backend development</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section
+      id="projects"
+      class="py-20 px-6 bg-gradient-to-br from-purple-50 to-pink-50"
+    >
+      <div class="container mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-16 section-title">Projek Terbaru</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="stagger-item"
+            style="animation-delay: 0.1s"
+          >
+            <div class="bg-white rounded-2xl overflow-hidden cartoon-border h-full">
+              <div class="project-image">
+                <img
+                  src="img/Projek1.png"
+                  alt="Dashboard aplikasi e-commerce dengan interface modern dan colorful design"
+                  class="w-full h-48 object-cover"
+                  onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #FF6B6B, #4ECDC4)'"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">Sistem Operasi</h3>
+                <p class="text-gray-600 mb-4">Panduan sistem operasi yang lengkap, praktis, dan mudah dipahami bagi pelajar.</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Microsoft word</span>
+                  <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Canva</span>
+                  <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">GitBook</span>
+                </div>
+                <a
+                  href="https://books.google.co.id/books?hl=en&lr=&id=OH8oEQAAQBAJ&oi=fnd&pg=PA21&dq=info:wkSVqNA6V-8J:scholar.google.com&ots=pjlrAXFVFV&sig=-AX9Pq_E0ML7rEtqg_iH7bxis-I&redir_esc=y#v=onepage&q&f=false"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-block px-3 py-1 text-sm rounded-md font-medium text-white bg-blue-800 border border-blue-800 hover:bg-white hover:text-blue-800 transition duration-300"
+                  >Lihat</a
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            class="stagger-item"
+            style="animation-delay: 0.2s"
+          >
+            <div class="bg-white rounded-2xl overflow-hidden cartoon-border h-full">
+              <div class="project-image">
+                <img
+                  src="img/Projek2.png"
+                  alt="Mobile app interface dengan design clean dan user-friendly untuk task management"
+                  class="w-full h-48 object-cover"
+                  onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #4ECDC4, #FFE66D)'"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">Pengumpulan Tugas Akhir Dicoding</h3>
+                <p class="text-gray-600 mb-4">Situs Web Portofolio Responsif yang Menampilkan Profil Pribadi, Keterampilan, dan Proyek.</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">HTML5</span>
+                  <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">CSS3</span>
+                  <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                </div>
+                <a
+                  href="https://submission-belajar-dasar-pemrograma.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-block px-3 py-1 text-sm rounded-md font-medium text-white bg-blue-800 border border-blue-800 hover:bg-white hover:text-blue-800 transition duration-300"
+                  >Lihat</a
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            class="stagger-item"
+            style="animation-delay: 0.3s"
+          >
+            <div class="bg-white rounded-2xl overflow-hidden cartoon-border h-full">
+              <div class="project-image">
+                <img
+                  src="img/Projek3.png"
+                  alt="Website portfolio creative dengan animasi interaktif dan layout modern"
+                  class="w-full h-48 object-cover"
+                  onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #FFE66D, #FF6B6B)'"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">Desain Grafis</h3>
+                <p class="text-gray-600 mb-4">Portofolio Visual - Poster, Spanduk, dan Proyek Kreatif.</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Canva</span>
+                  <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Spark AR Studio</span>
+                </div>
+                <a
+                  href="https://www.behance.net/Brandika_Destu"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-block px-3 py-1 text-sm rounded-md font-medium text-white bg-blue-800 border border-blue-800 hover:bg-white hover:text-blue-800 transition duration-300"
+                  >Lihat</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certification Section -->
+    <section
+      id="certification"
+      class="py-20 px-6 bg-gradient-to-br from-purple-50 to-pink-50"
+    >
+      <div class="container mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-16 section-title">Sertifikasi Penghargaan</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="stagger-item"
+            style="animation-delay: 0.1s"
+          >
+            <div class="bg-white rounded-2xl overflow-hidden cartoon-border h-full">
+              <div class="project-image">
+                <img
+                  src="img/card 1.jpg"
+                  alt="Dashboard aplikasi e-commerce dengan interface modern dan colorful design"
+                  class="w-full h-auto object-cover"
+                  onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #FF6B6B, #4ECDC4)'"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-l font-bold mb-2">Belajar Dasar Pemrograman Web</h3>
+                <p class="text-gray-600 mb-4">Pelajari komponen-komponen dasar HTML dan CSS yang merupakan fondasi utama untuk menjadi front-end web developer.</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">HTML5</span>
+                  <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">CSS3</span>
+                  <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                </div>
+                <a
+                  href="https://www.dicoding.com/certificates/GRX5373YKZ0M"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-full block px-4 py-2 rounded-lg font-medium text-white bg-blue-800 border-2 border-blue-800 hover:bg-white hover:text-blue-800 transition duration-300 text-center"
+                >
+                  Lihat Sertifikat
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="stagger-item"
+            style="animation-delay: 0.2s"
+          >
+            <div class="bg-white rounded-2xl overflow-hidden cartoon-border h-full">
+              <div class="project-image">
+                <img
+                  src="img/card 2.jpg"
+                  alt="Mobile app interface dengan design clean dan user-friendly untuk task management"
+                  class="w-full h-auto object-cover"
+                  onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #4ECDC4, #FFE66D)'"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-l font-bold mb-2">AI Praktis untuk Produktivitas</h3>
+                <p class="text-gray-600 mb-4">Pelajari konsep dasar AI, manfaatkan alat AI, kuasai prompt engineering, dan gunakan AI secara etis untuk tetap unggul di era digital.</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Konsep AI</span>
+                  <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Manfaat Ai</span>
+                  <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">Promft</span>
+                </div>
+                <a
+                  href="https://www.dicoding.com/certificates/GRX5373YKZ0M"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-full block px-4 py-2 rounded-lg font-medium text-white bg-blue-800 border-2 border-blue-800 hover:bg-white hover:text-blue-800 transition duration-300 text-center"
+                >
+                  Lihat Sertifikat
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="stagger-item"
+            style="animation-delay: 0.3s"
+          >
+            <div class="bg-white rounded-2xl overflow-hidden cartoon-border h-full">
+              <div class="project-image">
+                <img
+                  src="img/card 3.jpg"
+                  alt="Website portfolio creative dengan animasi interaktif dan layout modern"
+                  class="w-full h-auto object-cover"
+                  onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #FFE66D, #FF6B6B)'"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-l font-bold mb-2">Belajar Penggunaan Generative AI</h3>
+                <p class="text-gray-600 mb-4">Kuasai generative AI untuk meningkatkan kreativitas, produktivitas, dan penggunaan AI yang bertanggung jawab dalam berbagai bidang.</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Kreativitas</span>
+                  <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Produktivitas</span>
+                  <span class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm">Penggunaan</span>
+                </div>
+                <a
+                  href="https://www.dicoding.com/certificates/GRX5373YKZ0M"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-full block px-4 py-2 rounded-lg font-medium text-white bg-blue-800 border-2 border-blue-800 hover:bg-white hover:text-blue-800 transition duration-300 text-center"
+                >
+                  Lihat Sertifikat
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      id="contact"
+      class="bg-dark text-dark py-12 px-6"
+    >
+      <div class="border-t border-gray-600 mt-12 pt-8 text-center">
+        <p class="text-dark">Copyright @ 2026 My BrandikaDestu Portfolio. Dibuat dengan menggunakan HTML, CSS, dan JavaScript. All rights reserved</p>
+      </div>
+    </footer>
+
+    <script>
+      // Animasi scroll dan navigation
+      document.addEventListener("DOMContentLoaded", function () {
+        // Smooth scroll untuk navigation
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+              target.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          });
+        });
+
+        // Animasi saat scroll
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateY(0)";
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll(".stagger-item").forEach((item) => {
+          observer.observe(item);
+        });
+
+        // Mobile menu toggle (basic implementation)
+        const menuBtn = document.querySelector("button");
+        const nav = document.querySelector("nav .hidden.md\\:flex");
+
+        menuBtn.addEventListener("click", () => {
+          nav.classList.toggle("hidden");
+          nav.classList.toggle("flex");
+          nav.classList.toggle("absolute");
+          nav.classList.toggle("top-full");
+          nav.classList.toggle("left-0");
+          nav.classList.toggle("w-full");
+          nav.classList.toggle("bg-white");
+          nav.classList.toggle("p-6");
+          nav.classList.toggle("flex-col");
+          nav.classList.toggle("space-y-4");
+        });
+      });
+      function kirimWA() {
+        let nomor = "6282279578917";
+        let pesan = "Halo, saya tertarik dengan portofolio Anda!";
+        let link = "https://wa.me/" + nomor + "?text=" + encodeURIComponent(pesan);
+        window.open(link, "_blank");
+      }
+    </script>
+  </body>
+</html>
